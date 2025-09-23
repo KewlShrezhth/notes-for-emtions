@@ -1,0 +1,1 @@
+This app creates 6 regions which each open up a note for each emotions.

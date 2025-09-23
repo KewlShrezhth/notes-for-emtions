@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>6 Notes for My Baby’s Moods</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='heart.css') }}">
+    <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: "Dancing Script", cursive, sans-serif;
+    background: #ffe6f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  h1 {
+    text-align: center;
+      font-size: 3.75em;
+    color: #d63384;
+    margin: 40px 0;
+  }
+
+  .middle-container {
+    flex: 1;
+    display: flex;
+      margin: -100px auto 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .regions {
+    display: flex;
+    gap: 40px;
+  }
+
+  .region {
+      position: relative;
+    width: 200px;
+    height: 200px;
+    background: #fff0f5;
+    border: 2px solid #d63384;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-weight: bold;
+      font-size: 25px;
+  }
+  .region:hover {
+    background: #ffd6e8;
+    transform: scale(1.08);
+  }
+
+  .overlay {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(255,192,203,0.95);
+    display: none; /* Hidden initially */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .close-btn {
+    margin-top: 20px;
+    background: #fff;
+    border: 2px solid #d63384;
+    border-radius: 8px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>6 Notes for My Baby’s Moods</h1>
+
+<div class="middle-container">
+  <div class="regions">
+    {% for mood in moods %}
+      <div class="region" onclick='openHeart({{ mood|tojson }})'>
+        when my baby is {{ mood }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="heart">
+    <div class="note" id="note">
+      <!-- ✍️ Add your note here -->
+    </div>
+  </div>
+  <button class="close-btn" onclick="closeHeart()">DONE?</button>
+</div>
+
+<script>
+  const notes = {
+      upset: "HEY MY SWEET GIRL WHY ARE YOU UPSET. DONT BE BABY PUT A BIG SMILE ON YOUR FACE RIGHT NOW. There is " +
+          "nothing in this world that should make this gorgeous girl sad. She is so perfect she is so amazing." +
+          "She has changed me into this person who is loving and kind and so in love with her. Don't be sad because" +
+          "I LOVE YOUUUU. Hey text me what the helly. TEXT MEEEEE RIGHT NOW BABY. Don't be sad because" +
+          "you should know how impactful you are. You light up the room you step into baby always remeber that" +
+          "and always remeber you have so many people that will listen to you baby. i love you so much" +
+          "amira like genuinely.",
+      angry: "UH OH WHO IS THIS ANGRY WOMAN. Shhhh baby relax, breathe in, breathe out, again breathe in, breathe out." +
+          "Yes baby everythings going to be fine dont break anything over this okay? If youre angry at me then I probaby" +
+          "did something really stupid and I deserved your anger but hey angry is not a good emotion now is it." +
+          "My baby might look really cute while angry but she looks even cuter smiling. So dont be angry my love and " +
+          "I promise you it wont be worth being angry if you js get off your phone. Yes baby off your phone," +
+          "this device makes you angry. I love every single inch of you and that hasn't changed in this moment okay???" +
+          "I LOVE YOUUU",
+      nervous: "WOAH NERVOUS AND AMIRA??? UH OH WHYS MY BABY NERVOUS. BADDIES DONT GET NERVOUS. Now relax baby deep breathes" +
+          ". Dont worry at all. This app is just for you. Remeber that whatever youre going through isnt" +
+          "that big and you can get through it easily okay? Me and you have gone through so much together so many phases" +
+          "baby you can always get through easily. so easily baby. Youre my baby girl you make me unnervous how can" +
+          "you be nervous. Stop. Ok listen and remeber. YOU ARE A BEAUTIFUL GORGEOUS BADDIE. YOU ARE SO AMAZING SO" +
+          "ASTONISHING. YOU. ARE. THE. STRONGEST. MOST BEAUTIFUL. BRAVEST. GIRL. EVER.",
+      "missing me": "Awwwwww you miss me??? YOU HAVE A CRSUH ON ME! Yayayayayyaya a beautiful girl has a crush on meeeee" +
+          "yayyayayyaya.",
+      insecure: "WRITE NOTE FOR TIRED HERE 💕",
+      alone: "WRITE NOTE FOR THOUGHTFUL HERE 💕"
+  };
+
+  function openHeart(mood) {
+      console.log("Mood clicked", mood);
+    document.getElementById("note").innerText = notes[mood];
+    document.getElementById("overlay").style.display = "flex";
+  }
+
+  function closeHeart() {
+    document.getElementById("overlay").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
