@@ -6,43 +6,53 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='heart.css') }}">
     <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <style>
   body {
     font-family: "Dancing Script", cursive, sans-serif;
     background: #ffe6f0;
-    margin: 0;
+    margin: 10%;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow: hidden;
+    /* overflow-y: hidden; */
   }
-
+  @media only screen and (max-height: 932px){
+    body{
+      overflow-y: hidden;
+    }
+  }
   h1 {
+    position: relative;
     text-align: center;
       font-size: 3.75em;
     color: #d63384;
-    margin: 40px 0;
+    margin: 20px 0;
   }
 
   .middle-container {
     flex: 1;
     display: flex;
-      margin: -100px auto 0 auto;
+      margin: -200px auto 0 auto;
     justify-content: center;
     align-items: center;
+    padding-top: 20vmin;
   }
-
   .regions {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    max-width: 80vw;
   }
-
   .region {
       position: relative;
-    width: 200px;
-    height: 200px;
+    width: 5em;
+    height: 5em;
     background: #fff0f5;
     border: 2px solid #d63384;
     border-radius: 16px;
@@ -86,7 +96,7 @@
 </head>
 <body>
 
-<h1>6 Notes for My Baby’s Moods</h1>
+<h1>Notes for My Baby’s Moods</h1>
 
 <div class="middle-container">
   <div class="regions">
@@ -127,12 +137,25 @@
           ". Dont worry at all. This app is just for you. Remeber that whatever youre going through isnt" +
           "that big and you can get through it easily okay? Me and you have gone through so much together so many phases" +
           "baby you can always get through easily. so easily baby. Youre my baby girl you make me unnervous how can" +
-          "you be nervous. Stop. Ok listen and remeber. YOU ARE A BEAUTIFUL GORGEOUS BADDIE. YOU ARE SO AMAZING SO" +
-          "ASTONISHING. YOU. ARE. THE. STRONGEST. MOST BEAUTIFUL. BRAVEST. GIRL. EVER.",
+          "you be nervous. Stop. Ok listen and remeber. \nYOU ARE A BEAUTIFUL GORGEOUS BADDIE. YOU ARE SO AMAZING SO" +
+          "ASTONISHING. YOU. ARE. THE. STRONGEST. MOST BEAUTIFUL. BRAVEST. GIRL. EVER.\nDont let anything frigten my baby girl."+
+          "\nShe is the bravest. She will beat\nnervousness up.\nBACK UP.",
+          
       "missing me": "Awwwwww you miss me??? YOU HAVE A CRSUH ON ME! Yayayayayyaya a beautiful girl has a crush on meeeee" +
-          "yayyayayyaya.",
-      insecure: "WRITE NOTE FOR TIRED HERE 💕",
-      alone: "WRITE NOTE FOR THOUGHTFUL HERE 💕"
+          "yayyayayyaya. Dont miss me baby girl coz I am right with you. Always with you and this app is just another form"+
+          "of me baby. Think about all the nights were going to have in the future where nothing is there telling us what"+
+          "we can and cant do. No one telling us how long to spend time and how long not to. Just me and you, together forever."+
+          "In our little house with our cute dogs and making pasta in the middle of the night then cuddling till we fall asleep"+
+          "through the alarm and just wake up so late. We will make it baby. \nDon't you worry. Don't worry about anything."+
+          "\nI LOVE YOUUUUUUU\nI LOVE YOUUUU\nI LOVE YOUUU\nI LOVE YOUU",
+
+      insecure: "Stop Im gonna cry just by the fact that you had to open this section. This is for when youre feeling insecure"+
+          "and my baby shouldn't be feeling bad about her own body, that just like goes against the laws of nature. How do I tell you"+
+          "that you are so wrong in every way possible to even open this section. Your whole body is so perfect my love from your hair"+
+          "to your eyes to your lips to your nose to your body every single aspect about you is so perfect. A girl with ocean like eyes"+
+          "is no less than a blessing. Not just a blessing to me but a blessing to this world. I would lay my hands out for you to walk"+
+          "just so you dont have to ever walk again on the floor. Your beauty is unmatched.\nDon't feel anything less than a goddess baby."+
+          "\nMy beautiful princess, \nyou're no less than a princess my love.\nA real Goddess",
   };
 
   function openHeart(mood) {
